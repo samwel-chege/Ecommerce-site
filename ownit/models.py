@@ -19,6 +19,15 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url  = ''
+        return url
+#This is a model method to render either an image or an empty string preventing the application from throwing an error                    
+#the @property is a decorator for accessing the method as an attribute
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
