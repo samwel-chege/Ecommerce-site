@@ -15,5 +15,6 @@ for (i = 0; i < UpdateBtns.length; i++){
     })
 }
 
+// we query all the buttons by the class of update cart and add an event handler in  a loop
 // create an if statement inside cart.js and console the user and two differnt statements depending on whether the 
 // user is logged in or not 
