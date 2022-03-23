@@ -23,7 +23,9 @@ function updateUserOrder(productId, action){
     fetch(url, {
         method: 'POST',
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'X-CSRFToken':csrftoken, //pass the csrftaken variable in the fetch() call
+            //this will allow us to see changes appear in our cart immediately once we render them
         },
         body:JSON.stringify({'productId': productId, 'action':action})
     })
