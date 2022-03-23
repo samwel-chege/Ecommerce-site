@@ -10,9 +10,32 @@ for (i = 0; i < UpdateBtns.length; i++){
         if (user == 'AnonymousUser'){
             console.log('User is not authenticated')
         }else{
-            console.log('User is authenticated, sending data...')
+            updateUserOrder(productId , action)
         }
     })
+}
+
+function updateUserOrder(productId, action){
+    console.log('User is authenticated, sending data...')
+
+    var url = '/update_item/'
+
+    fetch(url, {
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({'productId': productId, 'action':action})
+    })
+
+    .then((response) =>{
+        return response.json()
+    })
+
+    .then((data) =>{
+        console.log('data:', data)
+    })
+    
 }
 
 // we query all the buttons by the class of update cart and add an event handler in  a loop
