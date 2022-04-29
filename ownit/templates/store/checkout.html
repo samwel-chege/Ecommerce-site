@@ -66,4 +66,22 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        var shipping = '{{order.shipping}}'
+
+        if (shipping == 'False'){
+            document.getElementById('shipping-info').innerHTML = ''
+        }
+
+        var form = document.getElementById('form')
+        form.addEventListener('submit', function(e){
+            e.preventDefault()
+            console.log('Form Submitted...')
+            document.getElementById('form-button').classList.add("hidden");
+            document.getElementById('payment-info').classList.remove("hidden");
+        })
+        //hide button and open payment option on submit
+        //we query the form bu id and set the event listener on submit
+
+    </script>
 {% endblock content %}
